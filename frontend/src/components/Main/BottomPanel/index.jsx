@@ -5,7 +5,7 @@ import TaskList from './TaskList'
 
 function BottomPanel() {
   return (
-    <div className='bg-(--secondary) w-full h-[59%] p-2 flex justify-between items-center'>
+    <div className='bg-(--secondary) w-full h-[85%] p-2 flex justify-between items-center'>
       <UserSection></UserSection>
 
       <DynamicPanel></DynamicPanel>

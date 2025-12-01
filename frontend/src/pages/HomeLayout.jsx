@@ -6,14 +6,10 @@ import Title from "../components/Title/index.jsx"
 function HomeLayout() {
   return (
     <>
-      <div className="w-full h-screen bg-(--background) text-(--text-color) flex flex-col justify-between ">
-        <Title></Title>
-        <div className='w-full h-[95%] p-5 flex flex-col justify-between'>
-          <GamePanel></GamePanel>
+        <div className='w-full h-full border border-amber-500 flex flex-col justify-evenly'>
           <TimePanel></TimePanel>
           <BottomPanel></BottomPanel>
         </div>
-      </div>
     </>
   )
 }

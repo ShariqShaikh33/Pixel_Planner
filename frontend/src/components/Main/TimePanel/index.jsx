@@ -2,7 +2,7 @@ import React from 'react'
 
 function TimePanel() {
   return (
-    <div className='border bg-(--accent) text-(--background) w-full h-[5%] flex justify-center items-center'>
+    <div className='border bg-(--accent) text-(--background) w-full h-[10%] flex justify-center items-center'>
       TimePanel</div>
   )
 }

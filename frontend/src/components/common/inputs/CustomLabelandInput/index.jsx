@@ -1,0 +1,14 @@
+import React from 'react'
+import CustomLabel from '../CustomLabel'
+import CustomTextInput from '../CustomTextInput'
+
+function CustomLabelandText({id,text,type,placeholder}) {
+  return (
+    <div className='w-full flex gap-5 justify-between'>
+        <CustomLabel id={id} text={text}/>
+        <CustomTextInput id={id} type={type} placeholder={placeholder}/>
+    </div>
+  )
+}
+
+export default CustomLabelandText
