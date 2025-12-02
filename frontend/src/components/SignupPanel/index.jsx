@@ -14,7 +14,7 @@ function SignupPanel() {
 
   return (
     <div className='w-[50%] h-50 flex flex-col justify-evenly items-center'>         
-        <CustomLabelandText id="name" 
+        <CustomLabelandText id="username" 
           type="text" 
           text="Username" 
           placeholder="Enter your Name" 

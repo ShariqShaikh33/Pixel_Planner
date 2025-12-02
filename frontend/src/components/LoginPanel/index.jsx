@@ -6,7 +6,7 @@ import { userSelector } from '../../store/Slices/User/userSelector';
 
 function LoginPanel() {
   const dispatch = useDispatch();
-  const {name, password} = useSelector(userSelector);
+  const {username, password} = useSelector(userSelector);
 
   const handlechange = (key, value) =>{
     dispatch(setUserName({key,value}));
@@ -14,12 +14,12 @@ function LoginPanel() {
 
   return (
     <div className='w-full h-50 flex flex-col justify-evenly items-center'>
-        <CustomLabelandText id="name" 
+        <CustomLabelandText id="username" 
           type="text" 
           text="Username" 
           placeholder="Enter your Name"
-          value = {name}
-          onChange={(value)=>handlechange("name", value)}  
+          value = {username}
+          onChange={(value)=>handlechange("username", value)}  
         />
         <CustomLabelandText id="password" 
           type="password" 
