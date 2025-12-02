@@ -1,17 +1,20 @@
 import {config} from "dotenv";
-import express,{json} from "express";
+import express from "express";
 import cors from "cors";
 import { connect } from "mongoose";
-
+import {userRoutes} from "./routes/userRoutes.js"
 
 config();
 
 const app = express();
-app.use(json());
+app.use(express.json());
 app.use(cors());
 
 connect(process.env.MONGO_URI)
 .then(()=>console.log("MONGODB connected"));
+
+
+app.use("/api/user", userRoutes);
 
 app.get("/", (req,res)=>{
     res.json("Pixel Planner API is up.")

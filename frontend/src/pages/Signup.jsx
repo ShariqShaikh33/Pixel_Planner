@@ -2,8 +2,24 @@ import React from 'react'
 import LoginPanel from '../components/LoginPanel'
 import CustomButton from '../components/common/CustomButton'
 import SignupPanel from '../components/SignupPanel'
+import { useSelector } from 'react-redux'
+import { userSelector } from '../store/Slices/User/userSelector'
+import { signupAPI } from '../api/userApi'
 
 function Signup() {
+  const user = useSelector(userSelector);
+  const username = user.username;
+  const password = user.password;
+
+  const handlesignup= async(username,password)=>{
+    const result = await signupAPI(username,password);
+    if(result.error){
+      console.log("Signup Failed", result.error);
+    }
+    else{
+      console.log("Signup Successful",result);
+    }
+  }
   return (
     <div className='w-full h-full flex justify-center items-center' >
         <div className='w-[50%] h-[80%] border flex flex-col justify-evenly items-center'>
@@ -14,7 +30,7 @@ function Signup() {
             <SignupPanel/>
           </div>
 
-          <CustomButton text="Sign Up" onClick={()=>console.log("Sign Up")} className={"border"}/>
+          <CustomButton text="Sign Up" onClick={()=>handlesignup(username,password)} className={"border"}/>
         
         </div>
     </div>
