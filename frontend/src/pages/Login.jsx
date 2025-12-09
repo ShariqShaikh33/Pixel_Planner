@@ -1,24 +1,31 @@
 import React from 'react'
 import LoginPanel from '../components/LoginPanel'
 import CustomButton from '../components/common/CustomButton'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { userSelector } from '../store/Slices/User/userSelector';
 import { loginAPI } from '../api/userApi';
+import { useNavigate } from 'react-router';
+import { setUser, setUserProperty } from '../store/Slices/User/UserSlice';
 
 function Login() {
-  
+  const navigate = useNavigate();
   const user = useSelector(userSelector);
+  const dispatch = useDispatch();
   const username = user.username;
   const password = user.password;
 
   const handleLogin= async(username,password)=>{
     console.log("LOGIN")
     const result = await loginAPI(username,password);
+    const resUser = result.user;
     if(result.error){
       console.log("Login Failed", result.error);
     }
     else{
-      console.log("Login Successful",result);
+      dispatch(setUser(resUser))
+      localStorage.setItem("token",result.token);
+      localStorage.setItem("user",JSON.stringify(resUser));
+      navigate("/home");
     }
   }
 

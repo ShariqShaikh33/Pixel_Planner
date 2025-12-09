@@ -1,0 +1,25 @@
+import jwt from "jsonwebtoken";
+
+const authMiddleware = (req,res,next)=>{
+    try{
+        const authHeader = req.headers.authorization;
+        console.log(authHeader);
+        if(!authHeader || !authHeader.startsWith("Beareer ")){
+            return res.status(401).json(({message:"Not token, authorization denied"}));
+        }
+
+        const token = authHeader.split(" ")[1];
+
+        const decoded = jwt.verify(token,process.env.JWT_SECRET);
+
+        req.user={id: decoded.id};
+
+        next();
+    }
+    catch(error){
+        console.error("Auth error", error);
+        return res.status(401).json({message: "Token is not valid"});
+    }
+}
+
+export default authMiddleware;

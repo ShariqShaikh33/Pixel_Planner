@@ -2,11 +2,15 @@ import React from 'react'
 import LoginPanel from '../components/LoginPanel'
 import CustomButton from '../components/common/CustomButton'
 import SignupPanel from '../components/SignupPanel'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userSelector } from '../store/Slices/User/userSelector'
 import { signupAPI } from '../api/userApi'
+import { setUser } from '../store/Slices/User/UserSlice'
+import { useNavigate } from 'react-router'
 
 function Signup() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const user = useSelector(userSelector);
   const username = user.username;
   const password = user.password;
@@ -17,7 +21,12 @@ function Signup() {
       console.log("Signup Failed", result.error);
     }
     else{
-      console.log("Signup Successful",result);
+          dispatch(setUser({
+            username: result.user.username,
+            level: result.user.level,
+            exp: result.user.exp,
+          }))
+          navigate("/home");
     }
   }
   return (

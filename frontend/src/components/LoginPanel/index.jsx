@@ -1,15 +1,15 @@
 import React from 'react'
-import CustomLabelandText from '../common/inputs/CustomLabelandInput'
 import { useDispatch, useSelector } from 'react-redux';
-import { setUserName } from '../../store/Slices/User/UserSlice';
+import { setUserProperty } from '../../store/Slices/User/UserSlice';
 import { userSelector } from '../../store/Slices/User/userSelector';
+import CustomLabelandText from '../common/CustomLabelandInput';
 
 function LoginPanel() {
   const dispatch = useDispatch();
   const {username, password} = useSelector(userSelector);
 
   const handlechange = (key, value) =>{
-    dispatch(setUserName({key,value}));
+    dispatch(setUserProperty({key,value}));
   };
 
   return (

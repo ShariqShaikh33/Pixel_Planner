@@ -3,6 +3,7 @@ import express from "express";
 import cors from "cors";
 import { connect } from "mongoose";
 import {userRoutes} from "./routes/userRoutes.js"
+import { taskRoutes } from "./routes/taskRoutes.js";
 
 config();
 
@@ -15,6 +16,7 @@ connect(process.env.MONGO_URI)
 
 
 app.use("/api/user", userRoutes);
+app.use("/api/user/task/", taskRoutes)
 
 app.get("/", (req,res)=>{
     res.json("Pixel Planner API is up.")

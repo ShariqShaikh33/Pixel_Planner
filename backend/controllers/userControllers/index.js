@@ -43,9 +43,9 @@ export const signupUser = async(req,res)=>{
 export const loginUser = async(req,res)=>{
     try{
         const {username, password} = req.body;
-        console.log(req.body)
 
         const user = await User.findOne({username});
+        console.log(user);
         if(!user){
             return res.status(400).json({error: "User Not found"});
         }
@@ -63,6 +63,7 @@ export const loginUser = async(req,res)=>{
             message: "Login Successful",
             token,
             user:{
+                userId: user._id,
                 username: user.username,
                 level: user.level,
                 exp: user.exp

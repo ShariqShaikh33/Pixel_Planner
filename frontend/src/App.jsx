@@ -7,6 +7,7 @@ import GameScreenLayout from './pages/GameScreenLayout'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import { store } from './store/store';
+import TaskForm from './pages/TaskForm';
 
 function App() {
 
@@ -17,7 +18,9 @@ function App() {
         <Route path="/" element={<GameScreenLayout/>}> 
           <Route path="login" element={<Login/>}></Route>
           <Route path="signup" element={<Signup/>}></Route>
-          <Route path="home" element={<HomeLayout/>}></Route>
+          <Route path="home" element={<HomeLayout/>}>
+            <Route path="taskform" element={<TaskForm/>}></Route>
+          </Route>
         </Route>
       </Routes>
     </Router>

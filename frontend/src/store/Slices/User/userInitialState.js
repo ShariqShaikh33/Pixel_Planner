@@ -1,5 +1,9 @@
+const storedUser = JSON.parse(localStorage.getItem("user"));
 export const userInitialState = {
-    username: "",
+    userId: storedUser.userId || "",
+    username: storedUser.username || "",
     password: "",
-    charsprite: ""
+    charsprite: "",
+    exp: storedUser.exp||0,
+    level: storedUser.level||1,
 };

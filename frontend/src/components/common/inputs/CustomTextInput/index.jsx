@@ -3,7 +3,14 @@ import React from 'react'
 function CustomTextInput({id, type, onChange, placeholder}) {
   return (
     <>
-        <input onChange={(e)=>onChange(e.target.value)} className='border w-full text-left' id={id} type={type} placeholder={placeholder}></input>
+        <input 
+        onChange={(e)=>onChange(e.target.value)} 
+        className='border w-full text-left' 
+        id={id} 
+        type={type} 
+        placeholder={placeholder}>
+          
+        </input>
     </>
   )
 }
