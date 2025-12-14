@@ -7,13 +7,14 @@ import { userSelector } from '../store/Slices/User/userSelector'
 import { signupAPI } from '../api/userApi'
 import { setUser } from '../store/Slices/User/UserSlice'
 import { useNavigate } from 'react-router'
+import { authSelector } from '../store/Slices/Auth/authSelector'
 
 function Signup() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const user = useSelector(userSelector);
-  const username = user.username;
-  const password = user.password;
+  const auth = useSelector(authSelector);
+  const username = auth.username;
+  const password = auth.password;
 
   const handlesignup= async(username,password)=>{
     const result = await signupAPI(username,password);
@@ -22,7 +23,9 @@ function Signup() {
     }
     else{
           dispatch(setUser({
+            userId: result.user.userId,
             username: result.user.username,
+            charsprite: result.user.charsprite,
             level: result.user.level,
             exp: result.user.exp,
           }))

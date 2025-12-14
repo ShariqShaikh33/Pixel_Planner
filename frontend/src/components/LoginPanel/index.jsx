@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserProperty } from '../../store/Slices/User/UserSlice';
 import { userSelector } from '../../store/Slices/User/userSelector';
 import CustomLabelandText from '../common/CustomLabelandInput';
+import { authSelector } from '../../store/Slices/Auth/authSelector';
+import { setAuthProperty } from '../../store/Slices/Auth/authSlice';
 
 function LoginPanel() {
   const dispatch = useDispatch();
-  const {username, password} = useSelector(userSelector);
+  const {username, password} = useSelector(authSelector);
 
   const handlechange = (key, value) =>{
-    dispatch(setUserProperty({key,value}));
+    dispatch(setAuthProperty({key,value}));
   };
 
   return (

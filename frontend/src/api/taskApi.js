@@ -13,3 +13,15 @@ export const addTaskAPI = async(task)=>{
     });
     return res.json();
 }
+
+export const getTaskAPI = async()=>{
+    const token = localStorage.getItem("token");
+    const res = await fetch(`${API_BASE}/getTasklist/my`,{
+        method: "GET",
+        headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Beareer ${token}`,
+        }
+    });
+    return res.json();
+}

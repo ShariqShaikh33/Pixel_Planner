@@ -6,13 +6,14 @@ import { userSelector } from '../store/Slices/User/userSelector';
 import { loginAPI } from '../api/userApi';
 import { useNavigate } from 'react-router';
 import { setUser, setUserProperty } from '../store/Slices/User/UserSlice';
+import { authSelector } from '../store/Slices/Auth/authSelector';
 
 function Login() {
   const navigate = useNavigate();
-  const user = useSelector(userSelector);
+  const auth = useSelector(authSelector);
   const dispatch = useDispatch();
-  const username = user.username;
-  const password = user.password;
+  const username = auth.username;
+  const password = auth.password;
 
   const handleLogin= async(username,password)=>{
     console.log("LOGIN")
