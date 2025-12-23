@@ -1,10 +1,74 @@
 @import "tailwindcss";
 
+*{
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  color: #1b2236;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+body {
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  
+
+}
+
+.panel{
+  border: 20px solid transparent;
+  border-image: url(assests/panel/Panel-border-image.svg) 30 stretch;
+  background-image: url(assests/panel/Panel-background-image.svg);
+  background-clip: padding-box;
+}
+.button{
+  border: 15px solid transparent;
+  border-image: url(assests/button/button-border-image.svg) 30 round;
+  background-image: url(assests/panel/Panel-background-image.svg);
+  height: 40px;
+  
+}
+.button:active{
+  border-image: url(assests/button/button-border-active.svg) 30 round;
+  background-image: url(assests/button/button-background-active.svg);
+  background-clip: padding-box;
+}
+
+.title{
+  border: 20px solid transparent;
+  border-top: 0px;
+  border-image: url(assests/title/title-bottom-border.svg) 30 stretch;
+  border-image-slice: 33.333% 33.333% 33.333% 33.333%;
+  height: 30px;
+}
+.border{
+  border: 10px solid transparent;
+  border-image: url(assests/common/border/common-border.svg) 30 stretch;
+  border-image-slice: 33.333% 33.333% 33.333% 33.333%;
+}
+
+.customInput{
+  border: 10px solid transparent;
+  border-image: url(assests/common/border/common-border.svg) 30 stretch;
+  border-image-slice: 33.333% 33.333% 33.333% 33.333%;
+}
+.customInput:focus{
+  outline: none;
+  border: 10px solid transparent;
+  border-image: url(assests/common/border/common-border-focus.svg);
+  border-image-slice: 33.333% 33.333% 33.333% 33.333%;
+  background-image: url(assests/button/button-background-active.svg);
+}
+
 :root{
-    --primary: #6db4ff;
+    --primary: #eebd8a;
     --secondary: #3a4a63;
     --accent: #ffd46e;
-    --background: #1a1d24;
+    --background: #080d16;
     --text-color: #e5e7eb;
+    --border-light: #752438;
+    --border-dark: #411d31;
 }
 

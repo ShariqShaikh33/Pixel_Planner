@@ -1,14 +1,14 @@
 import React from 'react';
-import CustomLabelandText from '../components/common/CustomLabelandInput/index.jsx';
-import CustomLabelandArea from '../components/common/CustomLabelandArea/index.jsx';
-import CustomLabelandSelect from '../components/common/CustomLabelandSelect/index.jsx';
-import CustomButton from '../components/common/CustomButton/index.jsx';
+import CustomLabelandText from '../../components/common/CustomLabelandInput/index.jsx';
+import CustomLabelandArea from '../../components/common/CustomLabelandArea/index.jsx';
+import CustomLabelandSelect from '../../components/common/CustomLabelandSelect/index.jsx';
+import CustomButton from '../../components/common/CustomButton/index.jsx';
 import { useNavigate } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
-import { taskSelector } from '../store/Slices/Task/taskSelector.js';
-import { resetTask, setTaskProperty } from '../store/Slices/Task/TaskSlice.js';
-import { addTask } from '../store/Slices/TaskList/TaskListSlice.js';
-import { addTaskAPI } from '../api/taskApi.js';
+import { taskSelector } from '../../store/Slices/Task/taskSelector.js';
+import { resetTask, setTaskProperty } from '../../store/Slices/Task/TaskSlice.js';
+import { addTask } from '../../store/Slices/TaskList/TaskListSlice.js';
+import { addTaskAPI } from '../../api/taskApi.js';
 function TaskForm() {
   const options = [
     {optionid: "easy", option: "Easy"},
@@ -79,7 +79,7 @@ function TaskForm() {
   }
 
   return (
-    <div className='border w-full h-full'>
+    <div className='w-full h-full'>
       <div className='border w-full h-[80%] flex flex-col justify-evenly items-center'>
         <CustomLabelandText id={"title"} value={newtask.title} text="Title" type="text" placeholder="Task Title" onChange={(value)=>handlechange("title",value)}/>
         <CustomLabelandSelect id={"difficulty"} value={difficulty} text={"Difficulty"} options={options} onChange={(value)=>handlechange("difficulty",value)} />

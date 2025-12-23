@@ -26,7 +26,7 @@ function Login() {
       dispatch(setUser(resUser))
       localStorage.setItem("token",result.token);
       localStorage.setItem("user",JSON.stringify(resUser));
-      navigate("/home");
+      navigate("/home/clock");
     }
   }
 

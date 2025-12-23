@@ -41,8 +41,7 @@ export const addTask = async(req,res)=>{
 
 export const getTaskList = async (req,res)=>{
     try{
-        console.log(req);
-        const userId = req;
+        const userId = req.user.id;
         const tasklist = await Task.find({userId});
         return res.status(200).json({success:true, tasklist})
     }

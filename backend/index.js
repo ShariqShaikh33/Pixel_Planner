@@ -16,7 +16,7 @@ connect(process.env.MONGO_URI)
 
 
 app.use("/api/user", userRoutes);
-app.use("/api/user/task", taskRoutes)
+app.use("/api/user/task", taskRoutes);
 
 app.get("/", (req,res)=>{
     res.json("Pixel Planner API is up.")

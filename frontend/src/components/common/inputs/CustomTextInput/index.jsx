@@ -5,7 +5,7 @@ function CustomTextInput({id, type, onChange, placeholder}) {
     <>
         <input 
         onChange={(e)=>onChange(e.target.value)} 
-        className='border w-full text-left' 
+        className='customInput w-full text-left'
         id={id} 
         type={type} 
         placeholder={placeholder}>

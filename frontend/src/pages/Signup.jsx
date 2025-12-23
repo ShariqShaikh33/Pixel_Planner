@@ -29,7 +29,7 @@ function Signup() {
             level: result.user.level,
             exp: result.user.exp,
           }))
-          navigate("/home");
+          navigate("/home/clock");
     }
   }
   return (

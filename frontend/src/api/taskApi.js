@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:300/api/user/task";
+const API_BASE = "http://localhost:3000/api/user/task";
 
 export const addTaskAPI = async(task)=>{
     const token = localStorage.getItem("token");
@@ -16,7 +16,7 @@ export const addTaskAPI = async(task)=>{
 
 export const getTaskAPI = async()=>{
     const token = localStorage.getItem("token");
-    const res = await fetch(`${API_BASE}/getTasklist/my`,{
+    const res = await fetch(`${API_BASE}/gettasklist`,{
         method: "GET",
         headers:{
             "Content-Type": "application/json",

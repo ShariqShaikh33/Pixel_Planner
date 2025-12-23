@@ -8,7 +8,7 @@ function CustomTextArea(props) {
             id={id} 
             type={type} 
             placeholder={placeholder} 
-            className='border w-full'
+            className='customInput w-full'
             onChange={(e)=>onChange(e.target.value)}>
         </textarea>
     </>
